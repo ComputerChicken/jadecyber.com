@@ -282,6 +282,22 @@ input::placeholder {
     cursor: pointer;
 }
 
+.something {
+    width: 20vw;
+    font-size: 30px;
+    font-weight: 750;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#ending-text {
+    width: 50vw;
+    font-weight: 750;
+    font-size: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 @media only screen and (max-width: 767px) {
     .price-container {
         display: flex;
@@ -305,5 +321,33 @@ input::placeholder {
     .row {
         width: 100vw;
         margin-bottom: 0;
+    }
+    .rm-mobile {
+        display: none !important;
+    }
+    .column-mobile {
+        flex-direction: column !important;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .something {
+        width:max-content;
+    }
+
+    #ending-text {
+        width: 80vw;
+    }
+
+    #home-button {
+        visibility: hidden;
+    }
+
+    #home-button::after {
+        content: "J";
+        visibility: visible;
+        position: absolute;
+        left: 20px;
     }
 }
