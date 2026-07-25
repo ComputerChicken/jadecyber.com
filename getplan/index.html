@@ -8,10 +8,14 @@
 </head>
 <body id="body" style="overflow: hidden;">
     <div id="idek" style="z-index: 1000; position: relative;">
+        <div style="display: flex; align-items: center; height: 50px; position: absolute; top: 0; left: 0;">
+            <div id="home-button" onclick="window.location = '/'">Jade Cyber</div>
+        </div>
+        
         <div id="top-bar">
             <div class="top-option" onclick="window.location='/rates'">Rates</div>
             <div class="top-option" onclick="window.location='/clients'">Clients</div>
-            <div class="top-option" onclick="window.location='/'">About Me</div>
+        <div class="top-option" onclick="window.location='/team'">Our Team</div>
         </div>
         
         <div class="centerh" style="align-items: center; height: 100vh;">
@@ -27,30 +31,6 @@
     </div>
 </body>
 <script>
-    function randomChoice(choices) {
-        const randomIndex = Math.floor(Math.random() * choices.length);
-
-        return choices[randomIndex];
-    }
-    for (let i = 0; i < 500; i++) {
-        const star = document.createElement("div")
-        star.className = "star"
-        star.style.top = (Math.random() * document.body.scrollHeight).toString() + "px"
-        star.style.left = (Math.random() * 100).toString() + "vw"
-        star.style.backgroundColor = randomChoice(["#fff","#ddf","#fdd"])
-        const size = Math.random()*3
-        star.style.width = size + "px"
-        star.style.height = size + "px"
-        star.style.borderRadius = "100%"
-        body.appendChild(star)
-    }
-    if (history.scrollRestoration) {
-        history.scrollRestoration = 'manual';
-    } else {
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 0);
-        });
-    }
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const plan = urlParams.get("plan")

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 html {
     height: 100%;
     interpolate-size: allow-keywords
@@ -5,7 +7,6 @@ html {
 
 body {
     margin: 0px;
-    overflow: hidden;
     background: #000f;
     height: 100%;
 }
@@ -40,16 +41,6 @@ div {
     width:100%;
     z-index: 999;
 }
-.star {
-    position: absolute;
-    background-color: #fff;
-    width: 2px;
-    height: 2px;
-    z-index: 98;
-    box-shadow: 0 0 1px #fff,
-    0 0 2px #fff,
-    0 0 3px #fff
-}
 .centerh {
     text-align: center;
     display: flex;
@@ -58,21 +49,26 @@ div {
     overflow: auto;
 }
 .section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 75%;
     background-color: #000;
-    border: solid #fff 1px;
+    border: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     border-radius: 20px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 20px;
     padding-top: 20px;
-    margin: auto;
+    margin: 0;
     height: min-content;
     margin-top: 20px
 }
 .row {
-    opacity: 0;
-    width:50vw;
+    width:40%;
     display: block;
     justify-content: center;
     margin-bottom: 0;
@@ -126,6 +122,12 @@ a {
 #blackout.active {
     opacity: 1;
 }
+.g-text {
+    background-clip: text;
+    font-weight: 750;
+    color: transparent;
+    background-image: linear-gradient(45deg, #0f0, #0fd);
+}
 @keyframes flyInFromLeft {
     0% {
     transform: translateX(-100%);
@@ -141,7 +143,10 @@ a {
     height: 50px;
     width: 100%;
     background-color: #000;
-    border-bottom: #fff 2px solid;
+    border-bottom: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -163,25 +168,31 @@ a {
     transform: translate(0, -3px);
 }
 .top-option::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  transform-origin: bottom left;
-  transition: transform 0.25s ease-out;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    border-bottom: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
 }
 .top-option:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom center;
+    transform: scaleX(1);
+    transform-origin: bottom center;
 }
 .price {
     width: 25%;
     background-color: #000;
-    border: #fff 2px solid;
+    border: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     border-radius: 20px;
     z-index: 1000;
     font-weight: 750;
@@ -190,7 +201,10 @@ a {
 button {
     background-color: #000;
     border-radius: 15px;
-    border: #fff 2px solid;
+    border: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     padding: 10px;
     color: #fff;
     font-weight: 750;
@@ -198,7 +212,9 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: #fff;
+    background: 
+        linear-gradient(45deg, #0f0, #0fd) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     color: #000;
 }
 
@@ -234,14 +250,36 @@ button:hover {
 
 input {
     border-radius: 15px;
-    background-color: #000;
-    border: 1px #fff solid;
+    border: transparent 2px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
     padding: 10px;
     color: #fff;
 }
 
 input::placeholder {
     color: #fff;
+}
+
+.price-divider {
+    width:100%;
+    border: transparent 1px solid;
+    background: 
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #0f0, #0fd) border-box; 
+    margin-top:50px;
+}
+
+#home-button {
+    font-weight: 750;
+    font-size: 25px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0f7;
+    padding-left: 10px;
+    z-index: 10000;
+    text-align: center;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {

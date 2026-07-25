@@ -4,161 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Darragh Bennett</title>
+    <title>Jade Cyber</title>
 </head>
 <body id="body">
-    <div id="star-container" style="overflow: hidden;"></div>
+    <div style="position: absolute; height: 100vh; width: 100vw; background-image: radial-gradient(circle at top center, #0f05 0%, #0a05 30%, #0005 50%); top:-200px; left:0; z-index: -1;"></div>
+    <div style="display: flex; align-items: center; height: 50px; position: absolute; top: 0; left: 0;">
+        <div id="home-button" onclick="window.location = '/'">Jade Cyber</div>
+    </div>
     <div id="top-bar">
-        <div class="top-option" onclick="window.location='rates'">Rates</div>
-        <div class="top-option" onclick="window.location='clients'">Clients</div>
-        <div class="top-option" onclick="window.location='/'">About Me</div>
+        <div class="top-option" onclick="window.location='/rates'">Rates</div>
+        <div class="top-option" onclick="window.location='/clients'">Clients</div>
+        <div class="top-option" onclick="window.location='/team'">Our Team</div>
     </div>
-    
-    <div id="blackout"></div>
-    <div id="fade-gradient"></div>
-    <div class="centerh title">
-        <div id="title-text" style="font-size: 30px;" class="glow">
-            Hi, I'm <br> Darragh Bennett
-            <div style="color: #ccc; font-size: 20px;" class="centerh">Engineer, mathmatician, programmer, and more.</div>
+    <div class="centerh" style="flex-direction: column;">
+        <div class="centerh" style="width: 100%; height: 100vh; flex-direction: column;">
+            <div style="font-weight: 750; font-size: 50px; font-family: 'Space Grotesk', sans-serif; color: #0f7;">Jade Cyber</div>
+            <p style="font-size: 20px; font-weight: 750;">Preparing you for the digital world.</p>
         </div>
+        <div class="centerh" style="width: 100%; height: 100vh; flex-direction: column; display: flex; align-items: center; justify-content: center;">
+            <div class="section" style="width: 50vw">
+                <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Why us?</div>
+                <div class="centerh">
+                    <div style="margin-right: 5px;">Because we are</div><div class="g-text">the best.</div>
+                </div>
+                <br>
+                <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Our prices</div>
+                <div class="centerh">
+                    <div style="margin-right: 5px;">Always premium, always </div><div class="g-text">low prices.</div>
+                </div>
+                <br>
+                <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Our team</div>
+                <div class="centerh">
+                    <div style="margin-right: 5px;">Our team is the best of the best, we are</div><div class="g-text">certified and passionate.</div>
+                </div>
+            </div>
+        </div>
+        <div class="g-text" style="font-size: 40px; font-weight: 750; font-family: 'Space Grotesk', sans-serif;">We specialize in</div>
+        <div class="centerh" style="gap: 100px; margin-top: 50px;">
+            <div style="width: 20vw; font-size: 30px; font-weight: 750;">
+                Web development
+                <div style="height: 20px;"></div>
+                <button style="font-size: 20px;" onclick="window.location = '/rates'">See Pricing</button>
+            </div>
+            <div style="width: 20vw; font-size: 30px; font-weight: 750;">
+                Web Maintenance
+                <div style="height: 20px;"></div>
+                <button style="font-size: 20px;" onclick="window.location = '/rates'">See Pricing</button>
+            </div>
+            <div style="width: 20vw; font-size: 30px; font-weight: 750;">
+                Pen Testing
+                <div style="height: 20px;"></div>
+                <button style="font-size: 20px;" onclick="window.location = '/rates'">See Pricing</button>
+            </div>
+        </div>
+        <div style="height: 200px;"></div>
+        <div class="centerh" style="width: 100%; justify-content: space-evenly;">
+            <div style="display: flex; flex-direction: column; font-weight: 750; font-size: 40px;">
+                1+
+                <div class="g-text">Happy Customers</div>
+            </div>
+            <div style="display: flex; flex-direction: column; font-weight: 750; font-size: 40px;">
+                100%
+                <div class="g-text">Security Focused</div>
+            </div>
+            <div style="display: flex; flex-direction: column; font-weight: 750; font-size: 40px;">
+                3
+                <div class="g-text">Core Services</div>
+            </div>
+            <div style="display: flex; flex-direction: column; font-weight: 750; font-size: 40px;">
+                Fast
+                <div class="g-text">Response Time</div>
+            </div>
+        </div>
+
+        <div class="centerh" style="flex-direction: column; margin-top: 200px; width: 100%; display: flex; justify-content: center; align-items: center;">
+            <div class="g-text" style="width: 50vw; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">
+                We believe security shouldn't be an afterthought. Every website we build is designed with performance, maintainability, and security in mind from day one.
+            </div>
+        </div>
+
+        <div style="height: 50vh;"></div>
     </div>
-    <div style="height: 20vh;"></div>
-    <div class="centerh" id="row-wrapper">
-    <div class="centerh row">
-        <div class="section">
-            <div class="section-header">
-                My Projects
-            </div>
-            <div><a href="https://qutol.com">Qutol</a></div>
-            <div style="color: #aaa; font-size: medium;">Qutol is a fun and innovative social media site, programmed from the ground up in HTML, JS, CSS, and Node.js.</div>
-            <br>
-            <div><a href="https://pycomp.github.io">Pycomp</a></div>
-            <div style="color: #aaa; font-size: medium;">Pycomp is a python competition platform built using HTML, JS, CSS, and Firebase.</div>
-        </div>
-        <div class="section">
-            <div class="section-header">
-                Skills
-            </div>
-            <div style="font-weight: 750; color: #aaa;">Languages</div>
-            <div style="color: #aaa; font-size: medium;">I can program in over 10 language, notably Python, C++, JS, Java, and more.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Full Stack</div>
-            <div style="color: #aaa; font-size: medium;">I am a full stack developer and can effectively program both front end and back end.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Creativity</div>
-            <div style="color: #aaa; font-size: medium;">I am extremely creative and I think outside of the box whenever possible.</div>
-            <br>
-        </div>
-        <div class="section">
-            <div class="section-header">
-                Certifications
-            </div>
-            <div style="font-weight: 750; color: #aaa;">PCEP</div>
-            <div style="color: #aaa; font-size: medium;">The entry level Python certification.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">PCAP</div>
-            <div style="color: #aaa; font-size: medium;">The advanced level Python certification.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">MOS</div>
-            <div style="color: #aaa; font-size: medium;">The Microsoft Office Specialist certification is very applicable to the work force.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">CCST</div>
-            <div style="color: #aaa; font-size: medium;">The Cisco Certified Support Technician is a very valuable certification in networking.</div>
-            <br>
-        </div>
-    </div>
-    <div class="centerh row">
-        <div class="section">
-            <div class="section-header">
-                Academics
-            </div>
-            <div style="font-weight: 750; color: #aaa;">Silver Creek High School</div>
-            <div style="color: #aaa; font-size: medium;">I am currently attending high school at Silver Creek High School and am maintaining a GPA of 4.5 (weighted).</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">AP and Honors</div>
-            <div style="color: #aaa; font-size: medium;">I am currently taking numerous AP/college classes and am enrolled in all honors.</div> 
-        </div>
-        <div class="section">
-            <div class="section-header">
-                Other
-            </div>
-            <div style="font-weight: 750; color: #aaa;">Mathematics</div>
-            <div style="color: #aaa; font-size: medium;">I am currently taking Calculus III as a Sophmore in high school and love math as a hobby.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Engineering</div>
-            <div style="color: #aaa; font-size: medium;">I have a love for engineering and like to make anything and everything.</div>
-        </div>
-        <div class="section">
-            <div class="section-header">
-                Out of School
-            </div>
-            <div style="font-weight: 750; color: #aaa;">SCLA</div>
-            <div style="color: #aaa; font-size: medium;">SCLA (or Silver Creek Leadership Academy) is a program that teaches students how to volunteer and how to lead.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Robotics</div>
-            <div style="color: #aaa; font-size: medium;">I am on the appdev subteam at 1619 Up-A-Creek Robotics.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">RaptorTECH</div>
-            <div style="color: #aaa; font-size: medium;">RaptorTECH is a cybersecurity program that allows me to get an associates degree during highschool.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">CTT</div>
-            <div style="color: #aaa; font-size: medium;">The Cyber Tech Team internship is an internship at the Innovation Center in Longmont, CO, where I have the opportunity to do many things related to cybersecurity.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Math Club</div>
-            <div style="color: #aaa; font-size: medium;">I love math and participating in math club at my school is a go to for a nerd like me.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Cyberpatriots</div>
-            <div style="color: #aaa; font-size: medium;">In Cyberpatriots, we secure Virtual Machines to protect from possible vulnerabilities.</div>
-            <br>
-            <div style="font-weight: 750; color: #aaa;">Mathnasium</div>
-            <div style="color: #aaa; font-size: medium;">I am currently a tutor at Mathnasium in Longmont, CO.</div>
-        </div>
-    </div>
-    </div>
-    <div id="click"></div>
 </body>
-<script>
-    function randomChoice(choices) {
-        const randomIndex = Math.floor(Math.random() * choices.length);
-
-        return choices[randomIndex];
-    }
-    const rows = document.getElementsByClassName('row');
-    const blackout = document.getElementById('blackout');
-    const body = document.getElementById('body')
-    document.getElementById("click").addEventListener('click', () => {
-        document.getElementById("click").style.zIndex = "0"
-        body.style.overflow = 'visible'
-        Array.from(rows).forEach(element => {
-            element.style.zIndex = "100"
-            element.classList.toggle('active')
-        });
-        blackout.classList.toggle('active');
-        document.querySelectorAll('.star').forEach(el => {
-            if (el.getBoundingClientRect().top > (document.getElementById("row-wrapper").scrollHeight + 200)) {
-                el.remove();
-            }
-        });
-
-    });
-    for (let i = 0; i < 500; i++) {
-        const star = document.createElement("div")
-        star.className = "star"
-        star.style.top = (Math.random() * document.body.scrollHeight * 3).toString() + "px"
-        star.style.left = (Math.random() * 100).toString() + "vw"
-        star.style.backgroundColor = randomChoice(["#fff","#ddf","#fdd"])
-        const size = Math.random()*3
-        star.style.width = size + "px"
-        star.style.height = size + "px"
-        star.style.borderRadius = "100%"
-        document.getElementById("star-container").appendChild(star)
-    }
-    if (history.scrollRestoration) {
-        history.scrollRestoration = 'manual';
-    } else {
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 0);
-        });
-    }
-</script>
 </html>
