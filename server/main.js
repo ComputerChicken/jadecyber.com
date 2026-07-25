@@ -49,7 +49,7 @@ async function writeTextFile(name, content) {
 app.post('/submit', async (req, res) => {
     const body = req.body;
     console.log(body)
-    const content = [body.name, body.plan, body.email, body.phone, body.webapp].join("\n")
+    const content = [body.name, body.plan, body.email, body.phone, body.webapp, body.notes].join("\n")
     res.send(await writeTextFile(body.name, content));
 });
 
