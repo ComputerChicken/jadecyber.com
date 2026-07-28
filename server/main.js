@@ -1,19 +1,9 @@
 const express = require('express');
 const fs = require('node:fs/promises');
 const cors = require('cors');
-const { rateLimit } = require('express-rate-limit');
 
 const app = express();
 const port = 21478;
-
-app.set('trust proxy', 1);
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 10
-});
-
-app.use(limiter);
 
 app.use(cors());
 
