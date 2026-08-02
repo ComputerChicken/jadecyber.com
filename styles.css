@@ -294,6 +294,41 @@ input::placeholder {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+#home-title {
+    font-weight: 750;
+    font-size: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0f7;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    animation: expand 1.5s ease-out;
+}
+
+#title-image {
+    height: 75px;
+    animation: spin 1.5s ease-out;
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+    }
+    to {
+        width: fit-content;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(calc(360deg / 11 * 7));
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .price-container {
         display: flex;
