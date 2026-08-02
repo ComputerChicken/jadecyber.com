@@ -294,6 +294,95 @@ input::placeholder {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+#home-title {
+    font-weight: 750;
+    font-size: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #0f7;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    animation: expand 1s ease-out;
+}
+
+#title-image {
+    height: 75px;
+    animation: spin 1s ease-out;
+}
+
+.scroll-reveal {
+    animation: fadeRight 1.5s ease forwards;
+}
+
+.scroll-reveal-left {
+    animation: fadeLeft 1.5s ease forwards;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.hidden-left {
+    opacity: 0;
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+    }
+    to {
+        width: fit-content;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(calc(360deg / 11 * 7));
+    }
+}
+
+#our-team {
+    width: 20vw;
+    animation: fadeUp 1s ease;
+}
+
 @media only screen and (max-width: 767px) {
     .price-container {
         display: flex;
@@ -334,5 +423,9 @@ input::placeholder {
 
     #ending-text {
         width: 80vw;
+    }
+
+    #our-team {
+        width: 50vw !important;
     }
 }
