@@ -6,10 +6,13 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Jade Cyber</title>
 </head>
-<body id="body">
-    <div style="position: absolute; height: 100vh; width: 100vw; background-image: radial-gradient(circle at top center, #0f05 0%, #0a05 30%, #0005 50%); top:-200px; left:0; z-index: -1;"></div>
+
+    <body id="body">
+        <div id="bg"></div>
+        <div id="binary-rain"></div>
+        <div style="position: absolute; height: 100vh; width: 100vw; background-image: radial-gradient(circle at top center, #0f05 0%, #0a05 30%, #0005 50%); top:-200px; left:0; z-index: -1;"></div>
     <div style="display: flex; align-items: center; height: 50px; position: absolute; top: 0; left: 0;">
-        <img id="home-button" src="/logo.png" onclick="window.location = '/'">
+        <img class="logo" id="home-button" src="logo.png" onclick="window.location = '/'">
     </div>
     <div id="top-bar">
         <div class="top-option" onclick="window.location='/rates'">Rates</div>
@@ -18,14 +21,15 @@
     </div>
     <div class="centerh" style="flex-direction: column; overflow-x: hidden;">
         <div class="centerh" style="width: 100%; height: 100vh; flex-direction: column;">
-            <div style="display:flex; align-items:center; justify-content:center;"><p id="home-title">Jade Cyber</p><img id="title-image" src="logo.png"></div>
+            <div style="display:flex; align-items:center; justify-content:center;"><p id="home-title">Jade Cyber</p>
+                <img class = "logo" id="title-image" src="logo.png"></div>
             <p style="font-size: 20px; font-weight: 750;">Preparing you for the digital world.</p>
         </div>
         <div class="rm-mobile centerh hidden" style="width: 100%; height: min-content; flex-direction: column; display: flex; align-items: center; justify-content: center; margin-bottom: 200px;">
             <div class="section" style="width: 50vw">
                 <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Why us?</div>
                 <div class="centerh">
-                    <div style="margin-right: 5px;">Because we are</div><div class="g-text">the best.</div>
+                    <div style="margin-right: 5px;">Because we are</div></div><div class="g-text">the best.</div>
                 </div>
                 <br>
                 <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Our prices</div>
@@ -39,6 +43,7 @@
                 </div>
             </div>
         </div>
+
         <div class="g-text hidden-left" style="font-size: 40px; font-weight: 750; font-family: 'Space Grotesk', sans-serif;">We specialize in</div>
         <div class="column-mobile centerh hidden-left" style="gap: 100px; margin-top: 50px; animation-delay: 0.25s;">
             <div class="something">
@@ -79,7 +84,7 @@
 
         <div class="centerh hidden" style="flex-direction: column; margin-top: 200px; width: 100%; display: flex; justify-content: center; align-items: center; animation-delay: 0.25s;">
             <div id="ending-text" class="g-text">
-                We believe security shouldn't be an afterthought. Every website we build is designed with performance, maintainability, and security in mind from day one.
+                &ldquo;We believe security shouldn't be an afterthought. Every website we build is designed with performance, maintainability, and security in mind from day one.&rdquo;
             </div>
         </div>
 
@@ -90,13 +95,13 @@
     const observerRight = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-            entry.target.classList.add("scroll-reveal");
-            observer.unobserve(entry.target);
+                entry.target.classList.add("scroll-reveal");
+                observer.unobserve(entry.target);
             }
         });
-        }, {
+    }, {
         threshold: 0.2
-        });
+    });
 
     document.querySelectorAll(".hidden").forEach(el => {
         observerRight.observe(el);
@@ -105,16 +110,62 @@
     const observerLeft = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-            entry.target.classList.add("scroll-reveal-left");
-            observer.unobserve(entry.target);
+                entry.target.classList.add("scroll-reveal-left");
+                observer.unobserve(entry.target);
             }
         });
-        }, {
+    }, {
         threshold: 0.2
-        });
+    });
 
     document.querySelectorAll(".hidden-left").forEach(el => {
         observerLeft.observe(el);
     });
+
+    function buildBinaryBackground() {
+        const binaryRainContainer = document.getElementById('binary-rain');
+
+        if (!binaryRainContainer) return;
+
+        binaryRainContainer.replaceChildren();
+
+        const cellWidth = 32;
+        const cellHeight = 64;
+        const columns = Math.ceil(window.innerWidth / cellWidth);
+        const rows = Math.ceil(window.innerHeight / cellHeight);
+
+        const fragment = document.createDocumentFragment();
+
+        for (let row = 0; row < rows; row += 1) {
+            for (let column = 0; column < columns; column += 1) {
+                const span = document.createElement('span');
+                span.classList.add('binary-digit');
+                span.textContent = (row + column) % 2 === 0 ? '1' : '0';
+                span.style.left = `${column * cellWidth + cellWidth / 2}px`;
+                span.style.top = `${row * cellHeight + cellHeight / 2}px`;
+                span.style.fontSize = `${0.9 + ((row + column) % 3) * 0.12}rem`;
+                span.style.animationDuration = `${0.45 + ((row + column) % 4) * 0.1}s`;
+                span.style.animationDelay = `${(row * columns + column) * 0.01}s`;
+                span.style.opacity = `${0.35 + ((row + column) % 5) * 0.1}`;
+                fragment.appendChild(span);
+            }
+        }
+        binaryRainContainer.appendChild(fragment);
+    }
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    buildBinaryBackground();
+
+    const handleResize = debounce(buildBinaryBackground, 100);
+    window.addEventListener('resize', handleResize);
+</script>
 </script>
 </html>
+
