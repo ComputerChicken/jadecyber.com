@@ -49,13 +49,13 @@
     transform: scale(0.8);
 }
 
-.logo {
+.logo, #home-button {
     display: inline-block;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-.logo:hover {
+.logo:hover, #home-button:hover {
     transform: rotate(10deg);
 }
 
@@ -123,6 +123,7 @@ div {
     padding: 20px 50px;
     margin: 20px 0 0 0;
     height: min-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 255, 170, 0.08);
 }
 
 .row {
@@ -169,9 +170,6 @@ a {
     font-weight: 750;
 }
 
-.glow {
-    text-shadow: 0 0 10px rgba(0, 255, 170, 0.4), 0 0 20px rgba(0, 255, 221, 0.2);
-}
 
 #blackout {
     background-color: var(--bg-color);
@@ -197,6 +195,7 @@ a {
     font-weight: 750;
     color: transparent;
     background-image: var(--accent-gradient);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 170, 0.45)) drop-shadow(0 0 16px rgba(0, 255, 221, 0.25));
 }
 
 @keyframes flyInFromLeft {
@@ -267,6 +266,7 @@ a {
     font-weight: 750;
     padding: 20px;
     transition: border-color var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 255, 170, 0.08);
 }
 
 .price:hover {
@@ -295,9 +295,9 @@ input:focus {
 }
 
 button:hover {
-    background: var(--accent-gradient);
+    background: rgba(0, 255, 170, 0.9);
     border-color: transparent;
-    color: var(--bg-color);
+    color: #000000;
 }
 
 input::placeholder {
@@ -358,6 +358,11 @@ input::placeholder {
     text-align: center;
     display: flex;
     flex-direction: column;
+    background: #080808;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 255, 170, 0.08);
 }
 
 #ending-text {
@@ -375,6 +380,7 @@ input::placeholder {
     white-space: nowrap;
     text-overflow: clip;
     animation: expand 1s ease-out;
+    text-shadow: 0 0 10px rgba(0, 255, 119, 0.5), 0 0 25px rgba(0, 255, 170, 0.3);
 }
 
 #title-image {
@@ -448,6 +454,62 @@ input::placeholder {
 #our-team {
     width: 20vw;
     animation: fadeUp 1s ease;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 280px;
+    background: #080808;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 25px 25px 30px 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 255, 170, 0.08);
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ffdd;
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.team-card .team-name {
+    font-size: 24px;
+    font-weight: 750;
+    margin-bottom: 3px;
+}
+
+.team-card .team-role {
+    font-size: 16px;
+    font-weight: 750;
+    color: #00ffdd;
+    margin-bottom: 12px;
+}
+
+.team-card .team-bio {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.team-card-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 767px) {

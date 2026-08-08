@@ -10,7 +10,6 @@
     <body id="body">
         <div id="bg"></div>
         <div id="binary-rain"></div>
-        <div style="position: absolute; height: 100vh; width: 100vw; background-image: radial-gradient(circle at top center, #0f05 0%, #0a05 30%, #0005 50%); top:-200px; left:0; z-index: -1;"></div>
     <div style="display: flex; align-items: center; height: 50px; position: absolute; top: 0; left: 0;">
         <img class="logo" id="home-button" src="logo.png" onclick="window.location = '/'">
     </div>
@@ -20,16 +19,16 @@
         <div class="top-option" onclick="window.location='/team'">Our Team</div>
     </div>
     <div class="centerh" style="flex-direction: column; overflow-x: hidden;">
-        <div class="centerh" style="width: 100%; height: 100vh; flex-direction: column;">
+        <div class="centerh" style="width: 100%; height: 30vh; flex-direction: column;">
             <div style="display:flex; align-items:center; justify-content:center;"><p id="home-title">Jade Cyber</p>
                 <img class = "logo" id="title-image" src="logo.png"></div>
             <p style="font-size: 20px; font-weight: 750;">Preparing you for the digital world.</p>
         </div>
-        <div class="rm-mobile centerh hidden" style="width: 100%; height: min-content; flex-direction: column; display: flex; align-items: center; justify-content: center; margin-bottom: 200px;">
+        <div class="rm-mobile centerh hidden" style="width: 100%; height: min-content; flex-direction: column; display: flex; align-items: center; justify-content: center; margin-bottom: 50px;">
             <div class="section" style="width: 50vw">
                 <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Why us?</div>
                 <div class="centerh">
-                    <div style="margin-right: 5px;">Because we are</div></div><div class="g-text">the best.</div>
+                    <div style="margin-right: 5px;">Because we are </div><div class="g-text">the best.</div>
                 </div>
                 <br>
                 <div style="color: #0f7; font-weight: 750; font-size: 30px; font-family: 'Space Grotesk', sans-serif;">Our prices</div>
@@ -44,8 +43,14 @@
             </div>
         </div>
 
-        <div class="g-text hidden-left" style="font-size: 40px; font-weight: 750; font-family: 'Space Grotesk', sans-serif;">We specialize in</div>
-        <div class="column-mobile centerh hidden-left" style="gap: 100px; margin-top: 50px; animation-delay: 0.25s;">
+        <div class = "section" style = "margin-bottom: 70px; border: 3px solid #176b4f; display: flex; align-items: center; justify-content: center; width: 100%;">
+            <div style="width: 100%; text-align: center;">Did you know: <span id="random-fact" style="color: #fff;"></span></div>
+        </div>
+
+        <div class="hidden-left" style="width: 100%; display: flex; justify-content: center; animation-delay: 0.25s;">
+            <div class="g-text" style="font-size: 40px; font-weight: 750; font-family: 'Space Grotesk', sans-serif; text-align: center;">We specialize in</div>
+        </div>
+        <div class="column-mobile centerh hidden-left" style="gap: 100px; margin-top: 50px; animation-delay: 0.25s; flex-wrap: wrap;">
             <div class="something">
                 Web development
                 <div style="height: 20px;"></div>
@@ -121,6 +126,43 @@
     document.querySelectorAll(".hidden-left").forEach(el => {
         observerLeft.observe(el);
     });
+
+    async function loadRandomFact() {
+        const factElement = document.getElementById('random-fact');
+        if (!factElement) return;
+
+        try {
+            const response = await fetch('random_facts.txt');
+            const text = await response.text();
+            const entries = text.split('\n')
+                .map(line => line.trim())
+                .filter(line => line.length > 0)
+                .map(line => {
+                    const [fact, url] = line.split('|').map(part => part.trim());
+                    return { fact, url };
+                });
+
+            if (entries.length === 0) throw new Error('No facts found');
+
+            const random = entries[Math.floor(Math.random() * entries.length)];
+
+            if (random.url) {
+                const link = document.createElement('a');
+                link.href = random.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.style.color = '#fff';
+                link.textContent = random.fact;
+                factElement.appendChild(link);
+            } else {
+                factElement.textContent = random.fact;
+            }
+        } catch (error) {
+            console.error('Error loading random fact:', error);
+        }
+    }
+
+    loadRandomFact();
 
     function buildBinaryBackground() {
         const binaryRainContainer = document.getElementById('binary-rain');
